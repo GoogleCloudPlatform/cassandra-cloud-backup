@@ -504,12 +504,12 @@ function touch_logfile() {
 # List available backups in GCS
 function inventory() {
   loginfo "Available Snapshots:"
-  gsutil ls -d "${GCS_BUCKET}/backups/${HOSTNAME}/snpsht/*"
+  gsutil ls -b "${GCS_BUCKET}/backups/${HOSTNAME}/snpsht/*"
   if [ -z $incremental_backups ] || [ $incremental_backups = false ]; then
     loginfo "Incremental Backups are not enabled for Cassandra"
   fi
   loginfo "Available Incremental Backups:"
-  gsutil ls -d "${GCS_BUCKET}/backups/${HOSTNAME}/incr/*"
+  gsutil ls -b "${GCS_BUCKET}/backups/${HOSTNAME}/incr/*"
 }
 
 # This is the main backup function that orchestrates all the options
