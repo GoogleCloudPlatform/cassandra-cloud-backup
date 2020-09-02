@@ -421,6 +421,9 @@ function validate() {
           fi
       fi
     fi
+  else
+    # ${ACTION} = "inventory"
+    parse_yaml_inventory
   fi
 
   logverbose "ERROR_COUNT: ${ERROR_COUNT}"
